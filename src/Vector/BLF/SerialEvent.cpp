@@ -81,12 +81,12 @@ char * SerialEvent::parse(char * buffer)
             buffer += size;
         } else {
             // general.dataLength
-            size = sizeof(GeneralSerialEvent::dataLength);
+			size = sizeof(general.dataLength);
             memcpy((void *) &general.dataLength, buffer, size);
             buffer += size;
 
             // general.timeStampsLength
-            size = sizeof(GeneralSerialEvent::timeStampsLength);
+			size = sizeof(general.timeStampsLength);
             memcpy((void *) &general.timeStampsLength, buffer, size);
             buffer += size;
 
@@ -122,8 +122,8 @@ size_t SerialEvent::calculateObjectSize()
         if ((flags & ((DWORD) Flags::CompactByte)) != 0)
             size += sizeof(CompactSerialEvent);
         else
-            size += sizeof(GeneralSerialEvent::dataLength) +
-                    sizeof(GeneralSerialEvent::timeStampsLength) +
+			size += sizeof(general.dataLength) +
+					sizeof(general.timeStampsLength) +
                     general.dataLength +
                     general.timeStampsLength;
 

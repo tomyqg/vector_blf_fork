@@ -60,7 +60,7 @@ void showCanMessage(Vector::BLF::CanMessage * canMessage)
 int main(int argc, char *argv[])
 {
 	if ((argc != 2) && (argc != 3) ) {
-		std::cout << "Parser <filename.blf>" << std::endl;
+		std::cout << "Parser <filename.blf> [channel to filter in]" << std::endl;
 		return -1;
 	}
 
